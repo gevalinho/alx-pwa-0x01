@@ -68,6 +68,7 @@ The Movie Database (TMDB)
 You should check the official docs for more endpoints (e.g. images, recommendations, similar, changes, lists, external IDs) 
 The Movie Database (TMDB)
 
+## Request and Response Format
 
 Request and Response Format
 Base URL & Common Prefix
@@ -124,7 +125,7 @@ Sample Response (abridged)
 
 
 Note that some fields are optional or may appear as null depending on the movie. Also, some fields (like poster_path or backdrop_path) provide only a partial path; you often need to prepend a base image URL (available in configuration endpoints) to build full image URLs. 
-launchschool.com
+
 
 
 Example: Request /movie/{movie_id}/credits
@@ -172,6 +173,7 @@ From crew, you can filter where job == "Director" to find the director(s).
 launchschool.com
 
 
+## Error Handling
 Notes on Error Responses
 
 When something goes wrong (e.g. bad API key, resource not found, invalid request), TMDb returns an HTTP status code plus a JSON object describing the error. For example:
@@ -187,7 +189,7 @@ You should check the HTTP status first (e.g. 401, 404, 429, etc.), then inspect 
 launchschool.com
 
 
-Authentication
+## Authentication
 
 You need a valid API Read Access Token (or API key) to make requests. 
 The Movie Database (TMDB)
@@ -220,7 +222,7 @@ HTTP Status	Meaning	Sample Body / status_code	Suggested Handling
 
 In your code, wrap API calls in try/catch (or catch on promise), check HTTP status, and surface meaningful messages (e.g. “Movie not found”, “Rate limit exceeded — wait and retry”, etc.).
 
-Usage Limits and Best Practices
+## Usage Limits and Best Practices
 
 TMDb enforces rate limiting (for example, requests per second or per time window). (Exact limits depend on your API plan) 
 The Movie Database (TMDB)
